@@ -17,7 +17,7 @@ function App() {
         onOpenConfirmation={() => setIsConfirmModalOpen(true)}
       />
 
-      <main className="mx-auto grid w-full max-w-7xl grid-cols-1 gap-8 px-5 pb-12 pt-8 sm:px-8 lg:grid-cols-[minmax(0,1fr)_22rem] lg:gap-9 lg:px-10 lg:pt-12">
+      <main className="mx-auto w-full max-w-7xl px-5 pb-12 pt-8 sm:px-8 lg:px-10 lg:pt-12">
         <section aria-labelledby="desserts-title">
           <div className="mb-7 flex flex-col gap-2">
             <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#c73b0f]">
@@ -38,11 +38,12 @@ function App() {
           </div>
         </section>
 
-        <CartDrawer
-          isOpen={isCartOpen}
-          onClose={() => setIsCartOpen(false)}
-        />
       </main>
+
+      <CartDrawer
+        isOpen={isCartOpen}
+        onClose={() => setIsCartOpen(false)}
+      />
 
       <ConfirmOrderModal
         isOpen={isConfirmModalOpen}
