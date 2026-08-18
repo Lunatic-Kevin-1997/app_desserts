@@ -42,7 +42,7 @@ export function QuantityStepper({
       type="button"
       aria-label={`Add ${productName} to cart`}
       onClick={onAddPreview}
-      className="inline-flex h-11 w-40 items-center justify-center gap-2 rounded-full border border-[#ad8a85] bg-white text-sm font-semibold text-[#260f08] transition duration-200 hover:border-[#c73b0f] hover:bg-[#fff7f4] hover:text-[#c73b0f] hover:shadow-[0_10px_22px_rgba(199,59,15,0.14)] active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c73b0f]"
+      className="inline-flex h-11 w-40 cursor-pointer items-center justify-center gap-2 rounded-full border border-[#ad8a85] bg-white text-sm font-semibold text-[#260f08] transition duration-200 hover:border-[#c73b0f] hover:bg-[#fff7f4] hover:text-[#c73b0f] hover:shadow-[0_10px_22px_rgba(199,59,15,0.14)] active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c73b0f]"
     >
       <img src={addToCartIcon} alt="" className="size-5" />
       Add to Cart
