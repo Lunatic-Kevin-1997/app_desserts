@@ -13,7 +13,7 @@ export function ProductCard({ product, onAddPreview }: ProductCardProps) {
         <img
           src={product.image}
           alt={product.name}
-          className="aspect-[251/240] w-full rounded-lg object-cover transition duration-300 group-hover:brightness-[0.98]"
+          className="aspect-[251/240] w-full rounded-lg border-2 border-transparent object-cover transition duration-300 group-hover:scale-[1.01] group-hover:border-[#c73b0f] group-hover:shadow-[0_14px_32px_rgba(199,59,15,0.18)]"
         />
 
         <div className="absolute inset-x-0 -bottom-6 flex justify-center">
