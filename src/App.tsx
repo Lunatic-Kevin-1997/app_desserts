@@ -10,26 +10,10 @@ function App() {
   const [isConfirmModalOpen, setIsConfirmModalOpen] = useState(false)
 
   return (
-    <div className="min-h-screen bg-[#fcf8f6]">
-      <Header
-        cartCount={0}
-        onOpenCart={() => setIsCartOpen(true)}
-        onOpenConfirmation={() => setIsConfirmModalOpen(true)}
-      />
-
-      <main className="mx-auto w-full max-w-7xl px-5 pb-12 pt-8 sm:px-8 lg:px-10 lg:pt-12">
+    <div className="min-h-screen bg-[#fcf8f6] text-[#260f08]">
+      <main className="mx-auto grid w-full max-w-[1216px] grid-cols-1 gap-8 px-6 pb-12 pt-10 sm:px-10 lg:grid-cols-[minmax(0,800px)_384px] lg:items-start lg:gap-8 lg:px-0 lg:pb-20 lg:pt-[88px]">
         <section aria-labelledby="desserts-title">
-          <div className="mb-7 flex flex-col gap-2">
-            <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#c73b0f]">
-              Fresh bakery
-            </p>
-            <h1
-              id="desserts-title"
-              className="text-4xl font-black leading-none text-[#260f08] sm:text-5xl"
-            >
-              Desserts
-            </h1>
-          </div>
+          <Header cartCount={0} onOpenCart={() => setIsCartOpen(true)} />
 
           <div className="grid grid-cols-1 gap-x-6 gap-y-8 md:grid-cols-2 lg:grid-cols-3">
             {products.map((product) => (
@@ -38,16 +22,16 @@ function App() {
           </div>
         </section>
 
+        <CartDrawer
+          isOpen={isCartOpen}
+          onClose={() => setIsCartOpen(false)}
+          onOpenConfirmation={() => setIsConfirmModalOpen(true)}
+        />
       </main>
-
-      <CartDrawer
-        isOpen={isCartOpen}
-        onClose={() => setIsCartOpen(false)}
-      />
 
       <ConfirmOrderModal
         isOpen={isConfirmModalOpen}
-        items={products.slice(0, 2)}
+        items={products.slice(0, 1)}
         onClose={() => setIsConfirmModalOpen(false)}
       />
     </div>

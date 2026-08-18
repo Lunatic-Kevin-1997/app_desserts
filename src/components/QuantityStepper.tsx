@@ -1,4 +1,6 @@
-import { Minus, Plus, ShoppingCart } from 'lucide-react'
+import addToCartIcon from '../assets/images/icon-add-to-cart.svg'
+import decrementIcon from '../assets/images/icon-decrement-quantity.svg'
+import incrementIcon from '../assets/images/icon-increment-quantity.svg'
 
 interface QuantityStepperProps {
   productName: string
@@ -11,13 +13,13 @@ export function QuantityStepper({
 }: QuantityStepperProps) {
   if (quantity > 0) {
     return (
-      <div className="flex h-11 min-w-40 items-center justify-between rounded-full bg-[#c73b0f] px-3 text-white shadow-[0_12px_28px_rgba(199,59,15,0.24)]">
+      <div className="flex h-11 w-40 items-center justify-between rounded-full bg-[#c73b0f] px-3 text-white">
         <button
           type="button"
           aria-label={`Decrease ${productName} quantity`}
-          className="grid size-5 place-items-center rounded-full border border-white transition hover:bg-white hover:text-[#c73b0f] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+          className="grid size-5 place-items-center rounded-full border border-white transition hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
         >
-          <Minus aria-hidden="true" size={13} strokeWidth={3} />
+          <img src={decrementIcon} alt="" className="w-[10px]" />
         </button>
         <span className="min-w-6 text-center text-sm font-bold">
           {quantity}
@@ -25,9 +27,9 @@ export function QuantityStepper({
         <button
           type="button"
           aria-label={`Increase ${productName} quantity`}
-          className="grid size-5 place-items-center rounded-full border border-white transition hover:bg-white hover:text-[#c73b0f] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+          className="grid size-5 place-items-center rounded-full border border-white transition hover:bg-white focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
         >
-          <Plus aria-hidden="true" size={13} strokeWidth={3} />
+          <img src={incrementIcon} alt="" className="size-[10px]" />
         </button>
       </div>
     )
@@ -37,9 +39,9 @@ export function QuantityStepper({
     <button
       type="button"
       aria-label={`Add ${productName} to cart`}
-      className="inline-flex h-11 min-w-40 items-center justify-center gap-2 rounded-full border border-[#ad8a85] bg-white px-5 text-sm font-bold text-[#260f08] shadow-sm transition hover:border-[#c73b0f] hover:text-[#c73b0f] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c73b0f]"
+      className="inline-flex h-11 w-40 items-center justify-center gap-2 rounded-full border border-[#ad8a85] bg-white text-sm font-semibold text-[#260f08] transition hover:border-[#c73b0f] hover:text-[#c73b0f] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c73b0f]"
     >
-      <ShoppingCart aria-hidden="true" size={18} className="text-[#c73b0f]" />
+      <img src={addToCartIcon} alt="" className="size-5" />
       Add to Cart
     </button>
   )

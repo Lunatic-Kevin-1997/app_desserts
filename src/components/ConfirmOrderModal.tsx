@@ -1,4 +1,4 @@
-import { CheckCircle2, X } from 'lucide-react'
+import orderConfirmedIcon from '../assets/images/icon-order-confirmed.svg'
 import type { Product } from '../interfaces/product'
 
 interface ConfirmOrderModalProps {
@@ -27,13 +27,8 @@ export function ConfirmOrderModal({
       <section className="w-full max-w-md rounded-t-3xl bg-white p-6 shadow-2xl sm:rounded-lg sm:p-8">
         <div className="mb-6 flex items-start justify-between gap-4">
           <div>
-            <CheckCircle2
-              aria-hidden="true"
-              className="mb-5 text-[#1ea575]"
-              size={42}
-              strokeWidth={1.8}
-            />
-            <h2 className="text-4xl font-black leading-[0.95] text-[#260f08]">
+            <img src={orderConfirmedIcon} alt="" className="mb-6 size-12" />
+            <h2 className="text-[2.5rem] font-bold leading-[1.05] text-[#260f08]">
               Order Confirmed
             </h2>
             <p className="mt-3 text-sm font-medium text-[#87635a]">
@@ -47,7 +42,7 @@ export function ConfirmOrderModal({
             onClick={onClose}
             className="grid size-10 shrink-0 place-items-center rounded-full border border-[#ead8d1] text-[#87635a] transition hover:border-[#c73b0f] hover:text-[#c73b0f] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c73b0f]"
           >
-            <X aria-hidden="true" size={20} />
+            x
           </button>
         </div>
 
@@ -56,7 +51,7 @@ export function ConfirmOrderModal({
             {items.map((item) => (
               <li key={item.id} className="flex items-center gap-4 py-4 first:pt-0">
                 <img
-                  src={item.image}
+                  src={item.image.thumbnail}
                   alt=""
                   className="size-14 rounded-md object-cover"
                 />
