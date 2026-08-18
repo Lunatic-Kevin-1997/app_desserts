@@ -3,24 +3,24 @@ import { QuantityStepper } from './QuantityStepper'
 
 interface ProductCardProps {
   product: Product
+  onAddPreview: () => void
 }
 
-export function ProductCard({ product }: ProductCardProps) {
+export function ProductCard({ product, onAddPreview }: ProductCardProps) {
   return (
     <article className="group">
       <div className="relative mb-[38px] overflow-visible rounded-lg">
-        <picture>
-          <source media="(min-width: 1024px)" srcSet={product.image.desktop} />
-          <source media="(min-width: 640px)" srcSet={product.image.tablet} />
-          <img
-            src={product.image.mobile}
-            alt={product.name}
-            className="aspect-[251/240] w-full rounded-lg object-cover transition duration-300 group-hover:brightness-[0.98]"
-          />
-        </picture>
+        <img
+          src={product.image}
+          alt={product.name}
+          className="aspect-[251/240] w-full rounded-lg object-cover transition duration-300 group-hover:brightness-[0.98]"
+        />
 
         <div className="absolute inset-x-0 -bottom-6 flex justify-center">
-          <QuantityStepper productName={product.name} />
+          <QuantityStepper
+            productName={product.name}
+            onAddPreview={onAddPreview}
+          />
         </div>
       </div>
 

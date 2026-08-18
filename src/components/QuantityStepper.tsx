@@ -4,11 +4,13 @@ import incrementIcon from '../assets/images/icon-increment-quantity.svg'
 
 interface QuantityStepperProps {
   productName: string
+  onAddPreview: () => void
   quantity?: number
 }
 
 export function QuantityStepper({
   productName,
+  onAddPreview,
   quantity = 0,
 }: QuantityStepperProps) {
   if (quantity > 0) {
@@ -39,6 +41,7 @@ export function QuantityStepper({
     <button
       type="button"
       aria-label={`Add ${productName} to cart`}
+      onClick={onAddPreview}
       className="inline-flex h-11 w-40 items-center justify-center gap-2 rounded-full border border-[#ad8a85] bg-white text-sm font-semibold text-[#260f08] transition hover:border-[#c73b0f] hover:text-[#c73b0f] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#c73b0f]"
     >
       <img src={addToCartIcon} alt="" className="size-5" />

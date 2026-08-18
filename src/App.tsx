@@ -17,7 +17,11 @@ function App() {
 
           <div className="grid grid-cols-1 gap-x-6 gap-y-8 md:grid-cols-2 lg:grid-cols-3">
             {products.map((product) => (
-              <ProductCard key={product.id} product={product} />
+              <ProductCard
+                key={product.id}
+                product={product}
+                onAddPreview={() => setIsCartOpen(true)}
+              />
             ))}
           </div>
         </section>

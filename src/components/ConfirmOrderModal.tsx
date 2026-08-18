@@ -51,7 +51,7 @@ export function ConfirmOrderModal({
             {items.map((item) => (
               <li key={item.id} className="flex items-center gap-4 py-4 first:pt-0">
                 <img
-                  src={item.image.thumbnail}
+                  src={item.image}
                   alt=""
                   className="size-14 rounded-md object-cover"
                 />
