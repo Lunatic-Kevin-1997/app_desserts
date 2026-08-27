@@ -1,12 +1,25 @@
 import { Link, useParams } from 'react-router-dom'
 import axios from 'axios'
 import { ProductSkeleton } from '../components/ProductSkeleton'
-import { useProductQuery } from '../hooks/useProductsQuery'
+import { QuantityStepper } from '../components/QuantityStepper'
+import {
+  useCategoriesQuery,
+  useProductQuery,
+} from '../hooks/useProductsQueries'
+import { useCartStore } from '../stores/cart.store'
 
 export function ProductDetailPage() {
   const { id } = useParams()
   const productId = id ?? ''
   const productQuery = useProductQuery(productId)
+  const categoriesQuery = useCategoriesQuery()
+  const quantity = useCartStore(
+    (state) =>
+      state.items.find((item) => item.product.id === productId)?.quantity ?? 0,
+  )
+  const addItem = useCartStore((state) => state.addItem)
+  const increaseQuantity = useCartStore((state) => state.increaseQuantity)
+  const decreaseQuantity = useCartStore((state) => state.decreaseQuantity)
 
   if (!productId) {
     return <ProductNotFound />
@@ -44,6 +57,10 @@ export function ProductDetailPage() {
   }
 
   const product = productQuery.data
+  const categoryName =
+    categoriesQuery.data?.find(
+      (category) => category.id === product.categoryId,
+    )?.name ?? 'Uncategorized'
 
   return (
     <main className="min-h-screen bg-[#fcf8f6] px-6 py-10 text-[#260f08] sm:px-10 lg:py-[88px]">
@@ -55,9 +72,9 @@ export function ProductDetailPage() {
         />
 
         <div className="flex flex-col justify-center">
-          <p className="text-sm font-medium text-[#ad8a85]">
-            {product.category}
-          </p>
+          <span className="w-fit rounded-full bg-[#f4e8e3] px-3 py-1 text-xs font-semibold text-[#87635a]">
+            {categoryName}
+          </span>
           <h1 className="mt-2 text-4xl font-bold leading-tight">
             {product.name}
           </h1>
@@ -67,6 +84,21 @@ export function ProductDetailPage() {
           <p className="mt-5 text-base leading-7 text-[#87635a]">
             {product.description}
           </p>
+          <div className="mt-8 flex flex-wrap items-center gap-3">
+            <QuantityStepper
+              productName={product.name}
+              quantity={quantity}
+              onAdd={() => addItem(product)}
+              onIncrease={() => increaseQuantity(product.id)}
+              onDecrease={() => decreaseQuantity(product.id)}
+            />
+            <Link
+              to={`/admin/productos/${product.id}/editar`}
+              className="inline-flex h-11 items-center justify-center rounded-full border border-[#ad8a85] px-5 text-sm font-semibold transition hover:border-[#c73b0f] hover:text-[#c73b0f]"
+            >
+              Edit product
+            </Link>
+          </div>
           <BackToProductsLink />
         </div>
       </article>

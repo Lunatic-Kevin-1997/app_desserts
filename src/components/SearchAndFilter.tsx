@@ -1,7 +1,9 @@
+import type { Category } from '../interfaces/category'
+
 interface SearchAndFilterProps {
   search: string
-  category: string
-  categories: string[]
+  categoryId: string
+  categories: Category[]
   isFetching: boolean
   onSearchChange: (value: string) => void
   onCategoryChange: (value: string) => void
@@ -9,7 +11,7 @@ interface SearchAndFilterProps {
 
 export function SearchAndFilter({
   search,
-  category,
+  categoryId,
   categories,
   isFetching,
   onSearchChange,
@@ -34,14 +36,14 @@ export function SearchAndFilter({
       </label>
       <select
         id="category-filter"
-        value={category}
+        value={categoryId}
         onChange={(event) => onCategoryChange(event.target.value)}
         className="h-12 w-full cursor-pointer rounded-lg border border-[#ead8d1] bg-[#fcf8f6] px-4 text-sm font-medium text-[#260f08] outline-none transition hover:border-[#c73b0f] focus:border-[#c73b0f] focus:bg-white"
       >
         <option value="">All categories</option>
         {categories.map((item) => (
-          <option key={item} value={item}>
-            {item}
+          <option key={item.id} value={item.id}>
+            {item.name}
           </option>
         ))}
       </select>

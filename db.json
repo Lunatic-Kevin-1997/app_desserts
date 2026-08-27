@@ -1,17 +1,17 @@
 {
   "products": [
     {
-      "id": "1",
       "name": "Waffle with Berries",
-      "category": "Waffle",
-      "price": 6.5,
+      "categoryId": "waffle",
+      "price": 7,
       "image": "/products/waffle.svg",
-      "description": "Crisp golden waffle served with fresh berries and a light sweet finish."
+      "description": "Crisp golden waffle served with fresh berries and a light sweet finish.",
+      "id": "1"
     },
     {
       "id": "2",
-      "name": "Vanilla Bean Cr\u00e8me Br\u00fbl\u00e9e",
-      "category": "Cr\u00e8me Br\u00fbl\u00e9e",
+      "name": "Vanilla Bean Crème Brûlée",
+      "categoryId": "creme-brulee",
       "price": 7,
       "image": "/products/creme-brulee.svg",
       "description": "Silky vanilla custard with a caramelized top and bright berry notes."
@@ -19,7 +19,7 @@
     {
       "id": "3",
       "name": "Macaron Mix of Five",
-      "category": "Macaron",
+      "categoryId": "macaron",
       "price": 8,
       "image": "/products/macaron.svg",
       "description": "A colorful mix of delicate macarons with soft shells and creamy centers."
@@ -27,7 +27,7 @@
     {
       "id": "4",
       "name": "Classic Tiramisu",
-      "category": "Tiramisu",
+      "categoryId": "tiramisu",
       "price": 5.5,
       "image": "/products/tiramisu.svg",
       "description": "Layered coffee-soaked dessert with cocoa, mascarpone cream, and a soft finish."
@@ -35,7 +35,7 @@
     {
       "id": "5",
       "name": "Pistachio Baklava",
-      "category": "Baklava",
+      "categoryId": "baklava",
       "price": 4,
       "image": "/products/baklava.svg",
       "description": "Flaky pastry filled with pistachio, honey, and a warm toasted crunch."
@@ -43,7 +43,7 @@
     {
       "id": "6",
       "name": "Lemon Meringue Pie",
-      "category": "Pie",
+      "categoryId": "pie",
       "price": 5,
       "image": "/products/meringue-pie.svg",
       "description": "Tangy lemon pie topped with soft meringue and a buttery crust."
@@ -51,7 +51,7 @@
     {
       "id": "7",
       "name": "Red Velvet Cake",
-      "category": "Cake",
+      "categoryId": "cake",
       "price": 4.5,
       "image": "/products/red-velvet.svg",
       "description": "Moist red velvet cake layered with smooth cream cheese frosting."
@@ -59,7 +59,7 @@
     {
       "id": "8",
       "name": "Salted Caramel Brownie",
-      "category": "Brownie",
+      "categoryId": "brownie",
       "price": 4.5,
       "image": "/products/brownie.svg",
       "description": "Dense chocolate brownie balanced with salted caramel and toasted notes."
@@ -67,10 +67,49 @@
     {
       "id": "9",
       "name": "Vanilla Panna Cotta",
-      "category": "Panna Cotta",
+      "categoryId": "panna-cotta",
       "price": 6.5,
       "image": "/products/panna-cotta.svg",
       "description": "Creamy vanilla panna cotta with a smooth set and berry topping."
     }
-  ]
+  ],
+  "categories": [
+    {
+      "id": "waffle",
+      "name": "Waffle"
+    },
+    {
+      "id": "creme-brulee",
+      "name": "Crème Brûlée"
+    },
+    {
+      "id": "macaron",
+      "name": "Macaron"
+    },
+    {
+      "id": "tiramisu",
+      "name": "Tiramisu"
+    },
+    {
+      "id": "baklava",
+      "name": "Baklava"
+    },
+    {
+      "id": "pie",
+      "name": "Pie"
+    },
+    {
+      "id": "cake",
+      "name": "Cake"
+    },
+    {
+      "id": "brownie",
+      "name": "Brownie"
+    },
+    {
+      "id": "panna-cotta",
+      "name": "Panna Cotta"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
 }
